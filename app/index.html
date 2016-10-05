@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="myApp" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>L&hearts;VE A BIT O' LOVELY TELLY!!</title>
   <link href="css/main.css" rel="stylesheet" />
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-app="myApp">
   <div class="wrapper">
     <header class="header">
-      <h1>LOVE A BIT O' LOVELY TELLY!!</h1>
+      <h1>L&hearts;VE  A  BIT  O'  L&hearts;VELY  TELLY!!</h1>
       <ul class="navigation">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
@@ -29,29 +22,40 @@
 
     <div class="main" ng-controller="MainController">
       <div class="content">
+        <h2>The ten most popular tv series on this planet, at this time!</h2>
         <div ng-view></div>
       </div>
     </div>
-    <aside class="aside aside-1">Aside 1</aside>
-    <aside class="aside aside-2">Aside 2</aside>
+
+
+    <aside class="aside aside-1" ng-controller="MovieController">
+      <h2>New movies...</h2>
+      <div class="row" ng-repeat="movie in movies">
+          <div class="movie-icon col-xs-2">
+          	<img ng-src="{{ movie.icon }}"/>
+          </div>
+          <div class="col-xs-4 likes">
+            <span class="decrease" ng-click="decrease($index)">-</span><span class="like">{{ movie.likes }}</span><span class="increase" ng-click="increase($index)">+</span>
+          </div>
+          <div class="col-xs-6">
+            <p class="movie-name">{{ movie.name }}</p>
+          </div>
+        </div>
+    </aside>
+
+
+
+    <aside class="aside aside-2"><h2>Most popular of all time...</h2></aside>
     <footer class="footer">Footer</footer>
   </div>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
 <!-- Modules -->
 <script src="./app.js"></script>
 
 <!-- Controllers -->
 <script src="./controllers/MainController.js"></script>
+<script src="./controllers/MovieController.js"></script>
 <script src="./controllers/SeriesController.js"></script>
 <!-- Directives -->
 <script src="./directives/tvShow.js"></script>
