@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
+  <link href="css/main.css" rel="stylesheet" />
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -15,22 +16,25 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-app="myApp">
-  <div class="header">
-    <div class="container">
-      <h1>My Angular App</h1>
-    </div>
-  </div>
+  <div class="wrapper">
+    <header class="header">
+      <h1>LOVE A BIT O' LOVELY TELLY!!</h1>
+      <ul class="navigation">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </header>
 
-  <div class="main" ng-controller="MainController">
-    <div class="container">
+    <div class="main" ng-controller="MainController">
       <div class="content">
-
-        <div ng-repeat="show in shows">
-          <tv-show info="show"></tv-show>
-        </div>
-
+        <div ng-view></div>
       </div>
     </div>
+    <aside class="aside aside-1">Aside 1</aside>
+    <aside class="aside aside-2">Aside 2</aside>
+    <footer class="footer">Footer</footer>
   </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -44,15 +48,15 @@
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
 <!-- Modules -->
-    <script src="./app.js"></script>
+<script src="./app.js"></script>
 
-    <!-- Controllers -->
-    <script src="./controllers/MainController.js"></script>
+<!-- Controllers -->
+<script src="./controllers/MainController.js"></script>
+<script src="./controllers/SeriesController.js"></script>
+<!-- Directives -->
+<script src="./directives/tvShow.js"></script>
 
-    <!-- Directives -->
-    <script src="./directives/tvShow.js"></script>
-
-    <!-- Services -->
-    <script src="./services/shows.js"></script>
+<!-- Services -->
+<script src="./services/shows.js"></script>
 </body>
 </html>

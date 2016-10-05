@@ -1,0 +1,154 @@
+/************************
+  PAGE STRUCTURE
+ ***********************/
+
+.wrapper {
+  flex-flow: row wrap;
+
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrapper,
+.navigation {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+}
+
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header,
+.footer {
+  background: tomato;
+}
+
+.main {
+  text-align: center;
+  background: deepskyblue;
+}
+
+.aside-1 {
+  background: gold;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+
+
+/************************
+  TV SHOWS DISPLAY
+ ***********************/
+
+.flex {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: inline-flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.seriesImage {
+  border: 5px solid tomato;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+/************************
+  NAVIGATION
+ ***********************/
+
+.navigation {
+  list-style: none;
+  margin: 0;
+
+  background: tomato;
+
+  justify-content: flex-end;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+  margin-right: 30px;
+  font-size: 1.4rem;
+}
+
+.navigation a:hover {
+  background: darken(tomato, 2%);
+}
+
+.navigation a {
+  text-align: center;
+  padding: 10px;
+}
+
+.navigation li:last-of-type a {
+  border-bottom: none;
+}
+
+/************************
+  MEDIA QUERIES
+ ***********************/
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
