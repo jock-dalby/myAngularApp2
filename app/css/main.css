@@ -1,23 +1,33 @@
+/**** Right away we need to weave the old, new, and tweener syntaxes together. Order is important here. Since the display property itself isn't prefixed, we need to make sure we don't override newer syntaxes with older syntaxes for browsers that still (and probably always will) support both. ****/
+
+.wrapper,
+.navigation,
+.series-block {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+}
+
 /************************
-  PAGE STRUCTURE
+  BASIC PAGE STRUCTURE
  ***********************/
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 .wrapper {
   flex-flow: row wrap;
-
   font-weight: bold;
   text-align: center;
 }
 
 .wrapper,
 .navigation {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-
-  -webkit-flex-flow: row wrap;
 }
 
 .wrapper > * {
@@ -43,38 +53,6 @@
   background: hotpink;
 }
 
-
-/************************
-  TV SHOWS DISPLAY
- ***********************/
-
-.flex {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: inline-flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.seriesImage {
-  border: 5px solid tomato;
-  width: 200px;
-  height: 150px;
-  margin: 20px;
-
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-}
 
 /************************
   NAVIGATION
@@ -112,6 +90,66 @@
 }
 
 /************************
+  MOVIE LIST
+ ***********************/
+
+.row p, .row span {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+}
+
+.col-xs-6 p {
+    color: #000;
+    font-size: 20px;
+}
+
+.likes {
+    text-align: center;
+}
+
+.likes span {
+    background: tomato;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+}
+
+.likes span.like {
+    background: #fff;
+    color: black;
+}
+
+/************************
+  TV SHOWS DISPLAY
+ ***********************/
+
+.series-block {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.seriesImage,
+.row img
+ {
+  border: 5px solid tomato;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+
+/************************
   MEDIA QUERIES
  ***********************/
 
@@ -130,6 +168,9 @@
 @media all and (max-width: 800px) {
   .navigation {
     justify-content: space-around;
+  }
+  .navigation a {
+    margin-right: 0;
   }
 }
 
