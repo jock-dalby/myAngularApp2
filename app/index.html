@@ -27,16 +27,16 @@
       </div>
     </div>
 
-
+    <!-- Event Handlers -->
     <aside class="aside aside-1" ng-controller="MovieController">
-      <h2>New movies...</h2>
+      <h2>Movie feedback!</h2>
       <div class="row" ng-repeat="movie in movies">
           <div class="movie-icon col-xs-2">
           	<img ng-src="{{ movie.icon }}"/>
           </div>
           <div class="col-xs-4 likes">
             <span class="decrease" ng-click="decrease($index)">-</span><span class="like">{{ movie.likes }}</span><span class="increase" ng-click="increase($index)">+</span>
-          </div>
+          </div><!--ng-click is a directive -->
           <div class="col-xs-6">
             <p class="movie-name">{{ movie.name }}</p>
           </div>
@@ -44,8 +44,17 @@
     </aside>
 
 
+    <!-- Directives -->
+    <aside class="aside aside-2" ng-controller="ComedyController">
+      <h2>Top comedy series...</h2>
+      <div class="row" ng-repeat="comedy in comedies">
+        <comedy-info info="comedy"></comedy-info>
+      </div>
+    </aside>
 
-    <!-- <aside class="aside aside-2"><h2>Most popular of all time...</h2></aside> -->
+
+
+
     <footer class="footer">&copy; Jock Dalby 2016</footer>
   </div>
 <script src="bower_components/angular/angular.js"></script>
@@ -57,8 +66,10 @@
 <script src="./controllers/MainController.js"></script>
 <script src="./controllers/MovieController.js"></script>
 <script src="./controllers/SeriesController.js"></script>
+<script src="./controllers/ComedyController.js"></script>
 <!-- Directives -->
 <script src="./directives/tvShow.js"></script>
+<script src="./directives/comedyInfo.js"></script>
 
 <!-- Services -->
 <script src="./services/shows.js"></script>

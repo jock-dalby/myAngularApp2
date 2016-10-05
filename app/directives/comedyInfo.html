@@ -1,0 +1,8 @@
+<div class="movie-icon col-xs-2">
+  <img ng-src="{{ info.icon }}"/>
+</div>
+<div class="col-xs-6">
+  <h3 class="movie-name">{{ info.name | uppercase}}</h3>
+  <p class="movie-name">{{ info.start_date }} - {{ info.end_date }}</p><br>
+  <p class="movie-name">{{ info.price | currency }}</p>
+</div>
