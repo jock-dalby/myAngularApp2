@@ -46,12 +46,12 @@
 }
 
 .aside-1 {
-  background: gold;
+  border-right: 3px solid tomato;
 }
 
-.aside-2 {
-  background: hotpink;
-}
+/*.aside-2 {
+  border-left: 3px solid tomato;
+}*/
 
 
 /************************
@@ -93,16 +93,19 @@
   MOVIE LIST
  ***********************/
 
+.aside {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: scroll;
+}
+
 .row p, .row span {
     display: inline-block;
     height: 50px;
     line-height: 50px;
     margin: 0;
-}
-
-.col-xs-6 p {
-    color: #000;
-    font-size: 20px;
 }
 
 .likes {
@@ -131,6 +134,7 @@
   list-style: none;
   display: inline-flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .seriesImage,
